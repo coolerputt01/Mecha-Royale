@@ -25,13 +25,17 @@ var delt;
 var isMoving = true;
 
 func play_sfx(stream):
+	randomize();
+	var random_pitch = rand_range(0.5,2);
 	match(stream):
 		"run":
 			if sfx.stream != sfx_run or not sfx.playing:
 					sfx.stream = sfx_run
+					sfx.pitch_scale = random_pitch;
 					sfx.play();
 		"shoot":
 			sfx.stream = sfx_shoot;
+			sfx.pitch_scale = random_pitch;
 			sfx.play();
 			return;
 

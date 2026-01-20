@@ -9,6 +9,7 @@ script = ExtResource( 3 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 5, 5 )
+tile_data = PoolIntArray( 2, 3, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 38, 44 )

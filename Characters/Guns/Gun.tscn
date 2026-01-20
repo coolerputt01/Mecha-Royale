@@ -45,4 +45,4 @@ anims/MOVE = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 7, -1.5 )
+position = Vector2( 7, 1.5 )

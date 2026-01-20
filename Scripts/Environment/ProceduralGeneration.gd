@@ -6,8 +6,8 @@ enum GRID_SPACE {
 	WALL
 }
 var TILE_ID = {
-	"FLOOR" : 1,
-	"WALL" : 0,
+	"FLOOR" : 2,
+	"WALL" : 3,
 }
 var gridMap = [];
 export var map_width := 15;

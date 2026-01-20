@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/StateMachine.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Fonts/DigitalDisco.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Characters/Guns/Gun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Props/Inventory/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Props/Health/Health.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
@@ -28,6 +29,14 @@ region = Rect2( 40, 0, 20, 20 )
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 60, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 60, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 20, 60, 20, 20 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
@@ -53,14 +62,6 @@ region = Rect2( 80, 20, 20, 20 )
 atlas = ExtResource( 3 )
 region = Rect2( 100, 20, 20, 20 )
 
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 60, 20, 20 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
-region = Rect2( 20, 60, 20, 20 )
-
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
@@ -68,15 +69,15 @@ animations = [ {
 "name": "IDLE",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "MOVE",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "BLINK",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "MOVE",
+"speed": 10.0
 } ]
 
 [sub_resource type="DynamicFont" id=16]
@@ -133,8 +134,17 @@ smoothing_enabled = true
 smoothing_speed = 4.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+offset = Vector2( 0, -80 )
+transform = Transform2D( 1, 0, 0, 1, 0, -80 )
 
-[node name="Control2" parent="Camera2D/CanvasLayer" instance=ExtResource( 6 )]
+[node name="Health" parent="Camera2D/CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="Inventory" parent="Camera2D/CanvasLayer" instance=ExtResource( 6 )]
+margin_left = 16.0
+margin_top = 85.0
+margin_right = 16.0
+margin_bottom = 85.0
 
 [node name="Hand" type="Node2D" parent="."]
 position = Vector2( 0, 11 )

@@ -3,7 +3,6 @@ extends StaticBody2D
 onready var guns_scene :=preload("res://Props/Guns/Guns.tscn");
 var guns := [];
 
-
 func _ready() -> void:
 	randomize();
 	var guns_instance := guns_scene.instance();
@@ -14,9 +13,6 @@ func _ready() -> void:
 	gun.position = Vector2.ZERO;
 
 	guns_instance.queue_free();
-
-
-
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
