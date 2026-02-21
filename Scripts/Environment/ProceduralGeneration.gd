@@ -6,7 +6,11 @@ enum GRID_SPACE {
 	WALL
 }
 var TILE_ID = {
-	"FLOOR" : 2,
+	"MAIN_FLOOR" : 0,
+	"FLOOR_TOP":5,
+	"FLOOR_TOP_LEFT":2,
+	"FLOOR_BOTTOM_RIGHT":4,
+	"FLOOR_BOTTOM":1,
 	"WALL" : 3,
 }
 var gridMap = [];
@@ -121,7 +125,6 @@ func getRandomPos():
 
 	if floor_data.empty():
 		return to_global(map_to_world(walkers.front()["pos"]) + cell_size / 2)
-		print("hi")
 
 	var tile = floor_data[randi() % floor_data.size()];
 	var world_mapped = map_to_world(tile);
@@ -133,6 +136,6 @@ func spawnLevel():
 		for x in range(map_width):
 			match(gridMap[y][x]):
 				GRID_SPACE.FLOOR:
-					spawn(x,y,TILE_ID["FLOOR"]);
+					spawn(x,y,TILE_ID["MAIN_FLOOR"]);
 				GRID_SPACE.WALL:
 					spawn(x,y,TILE_ID["WALL"])

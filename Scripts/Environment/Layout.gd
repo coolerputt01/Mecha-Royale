@@ -7,7 +7,6 @@ func addLootBox(pos: Vector2):
 	var lootBox := lootbox.instance();
 	lootBox.global_position = pos;
 	add_child(lootBox);
-	print("Test...");
 
 func _ready() -> void:
 	player.setPosition(tilemap.getRandomPos());

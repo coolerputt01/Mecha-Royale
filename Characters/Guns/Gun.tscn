@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Weapons/Guns/Gun.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Gun/Gun.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MOVE"
@@ -35,6 +36,7 @@ tracks/0/keys = {
 
 [node name="Gun" type="Node2D"]
 scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -46,3 +48,9 @@ anims/RESET = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]
 position = Vector2( 7, 1.5 )
+
+[node name="Cooddown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Cooddown" to="." method="_on_Cooddown_timeout"]

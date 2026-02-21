@@ -131,7 +131,7 @@ __meta__ = {
 current = true
 zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
-smoothing_speed = 4.0
+smoothing_speed = 8.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 layer = 10
